@@ -1,5 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#include <stddef.h>
+
+size_t ft_strlen(const char *str);
+char *ft_strcpy(char *dest, const char *src);
+int ft_strcmp(const char *s1, const char *s2);
+char *strdup(const char *s);
+
 
 int err = 0;
 
@@ -11,6 +18,8 @@ void printerr(char *func, char *msg) {
 void test_strlen() {
 	char *name = "strlen";
 	
+	printf("%ld\n", ft_strlen("hello"));
+
 	if (strlen("hello") == strlen("hello")) {
 		printerr(name, "test"); return;
 	}
