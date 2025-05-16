@@ -64,6 +64,22 @@ void test_strcpy() {
 void test_strcmp() {
 	char *name = "strcmp";
 
+	if (ft_strcmp("hello", "hello") != 0) {
+		printerr(name, "hello, hello"); return;
+	}
+	if (ft_strcmp("hella", "hello") != 'a' - 'o') {
+		printerr(name, "hella, hello"); return;
+	}
+	if (ft_strcmp("hello", "hella") != 'o' - 'a') {
+		printerr(name, "hello, hella"); return;
+	}
+	if (ft_strcmp("", "hello") != 0 - 'h') {
+		printerr(name, " , hello"); return;
+	}
+	if (ft_strcmp("", "") != 0) {
+		printerr(name, ""); return;
+	}
+
 	printf("%s OK\n", name);
 }
 

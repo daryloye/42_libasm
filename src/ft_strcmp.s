@@ -11,7 +11,7 @@ ft_strcmp:
 	je .done
 	
 	mov al, [rdi]
-	cmp al, [rsi]	; check if rdi == rsi
+	cmp al, [rsi]		; check if rdi == rsi
 
 	jne .done
 
