@@ -3,7 +3,7 @@ NAME = libasm.a
 SRC_DIR = ./src
 OBJ_DIR = ./obj
 
-SRC = hello_world.s ft_strlen.s
+SRC = hello_world.s ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.s=.o))
 
 TEST = ./test

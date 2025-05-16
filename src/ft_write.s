@@ -1,0 +1,1 @@
+global ft_write

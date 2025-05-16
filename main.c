@@ -18,10 +18,17 @@ void printerr(char *func, char *msg) {
 void test_strlen() {
 	char *name = "strlen";
 	
-	printf("%ld\n", ft_strlen("hello"));
-
-	if (strlen("hello") == strlen("hello")) {
-		printerr(name, "test"); return;
+	if (strlen("hello") != ft_strlen("hello")) {
+		printerr(name, "hello"); return;
+	}
+	if (strlen("0") != ft_strlen("0")) {
+		printerr(name, "0"); return;
+	}
+	if (strlen("") != ft_strlen("")) {
+		printerr(name, "null"); return;
+	}
+	if (strlen("\0") != ft_strlen("\0")) {
+		printerr(name, "\0"); return;
 	}
 	
 	printf("%s OK\n", name);
@@ -29,6 +36,27 @@ void test_strlen() {
 
 void test_strcpy() {
 	char *name = "strcpy";
+
+    char src1[] = "hello";
+    char dest1[] = "worldddd";
+    ft_strcpy(dest1, src1);
+	if (strcmp(dest1, src1) != 0) {
+		printerr(name, "hello"); return;
+	}
+
+	char src2[] = "";
+    char dest2[] = "world";
+	ft_strcpy(dest2, src2);
+	if (strcmp(dest2, src2) != 0) {
+		printerr(name, ""); return;
+	}
+
+	char src3[] = "world";
+    char dest3[] = "";
+    ft_strcpy(dest3, src3);
+	if (strcmp(dest3, src3) != 0) {
+		printerr(name, ""); return;
+	}
 
 	printf("%s OK\n", name);
 }
