@@ -2,7 +2,7 @@ global ft_strlen
 
 section .text
 ft_strlen:
-	xor rax, rax				; set return value (len) in rax to 0
+	xor rax, rax				; set return value (len) in rax to 0 (more optimised than mov rax, 0)
 
 .loop:
 	cmp byte [rdi + rax], 0		; check if s[len] == '/0'
@@ -12,6 +12,7 @@ ft_strlen:
 
 .done:
 	ret
+
 
 ; size_t	ft_strlen(const char *s)
 ; {

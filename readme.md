@@ -1,5 +1,5 @@
 ft_strlen		OK
-ft_strcpy
+ft_strcpy		OK
 ft_strcmp
 ft_write
 ft_read

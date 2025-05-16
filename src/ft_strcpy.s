@@ -2,18 +2,19 @@ global ft_strcpy
 
 section .text
 ft_strcpy:
-	mov rax, rdi		; return ptr to dest
+	mov rax, rdi		; return dest ptr
 
 .loop:
-	mov al, [rsi]		; move src[i] to al register
-	mov [rdi], al		; move al to dest[i]
+	mov al, [rsi]		; store the value of rsi in al register
+	mov [rdi], al		; set the value of rdi to al
 	inc rsi
 	inc rdi
-	test al, al			; if al is null (0), 0 && 0 = 0
-	jnz .loop			; repeat loop if not \0
+	test al, al			; check if al is 0 ('test' must involve >1 register)
+	jnz .loop			; repeat loop if not '\0'
 
 .done:
 	ret
+
 
 ; char *ft_strcpy(char *dest, const char *src)
 ; {
