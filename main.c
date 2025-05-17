@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <stddef.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 size_t ft_strlen(const char *str);
 char *ft_strcpy(char *dest, const char *src);
 int ft_strcmp(const char *s1, const char *s2);
-char *strdup(const char *s);
-
+ssize_t ft_write(int fd, const void *buf, size_t nbytes);
+ssize_t read(int fd, void buf, size_t count);
+char *ft_strdup(const char *s);
 
 int err = 0;
 
@@ -85,12 +88,26 @@ void test_strcmp() {
 
 void test_write() {
 	char *name = "write";
-	
-	printf("%s OK\n", name);
+
+	if (ft_write(1, "hello\n", 6) != write(1, "hello\n", 6)) {
+		printerr(name, "hello"); return;
+	}
+	if (ft_write(1, "", 1) != write(1, "", 1)) {
+		printerr(name, "null"); return;
+	}
+	if (ft_write(2, "test\n", 3) != write(2, "test\n", 3)) {
+		printerr(name, "test"); return;
+	}
+	if (ft_write(4, "test", 3) != write(4, "test", 3)) {
+		printerr(name, "invalid fd"); return;
+	}
+
+	printf("\n%s OK\n", name);
 }
 
 void test_read() {
 	char *name = "read";
+	
 	
 	printf("%s OK\n", name);
 }

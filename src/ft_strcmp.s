@@ -12,7 +12,6 @@ ft_strcmp:
 	
 	mov al, [rdi]
 	cmp al, [rsi]		; check if rdi == rsi
-
 	jne .done
 
 	inc rdi
@@ -20,9 +19,9 @@ ft_strcmp:
 	jmp .loop
 
 .done:
-	movzx eax, byte [rdi]
-	movzx ebx, byte [rsi]
-	sub eax, ebx
+	movzx rax, byte [rdi]	; move byte (8-bit) to rax (64-bit). movzx sets the remaining 24 bits to 0
+	movzx rbx, byte [rsi]
+	sub rax, rbx
 	ret 
 
 
